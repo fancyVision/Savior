@@ -182,9 +182,13 @@ class _VerificationState extends State<Verification> {
           setState(() {
             verificationCode = vID;
           });
-          PhoneAuthCredential cred = PhoneAuthProvider.credential(
-              verificationId: vID, smsCode: smsCode);
-          FirebaseAuth.instance.signInWithCredential(cred);
+          if (_pinController.text.isNotEmpty) {
+            PhoneAuthCredential cred = PhoneAuthProvider.credential(
+              verificationId: vID,
+              smsCode: _pinController.text,
+            );
+            FirebaseAuth.instance.signInWithCredential(cred);
+          }
         },
         codeAutoRetrievalTimeout: (String vID) {
           verificationCode = vID;

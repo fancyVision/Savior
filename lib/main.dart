@@ -10,22 +10,12 @@ import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:flutter_sim_country_code/flutter_sim_country_code.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
-
 import 'firebase_options.dart';
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCdxfRmEz_apm1Lao2O3BC6VGINWce7Glg",
-//   authDomain: "saviorappxs-4390f.firebaseapp.com",
-//   projectId: "saviorappxs-4390f",
-//   storageBucket: "saviorappxs-4390f.appspot.com",
-//   messagingSenderId: "378063846338",
-//   appId: "1:378063846338:web:0b52a447e4c687fbd7f45b"
-// };
 
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(
+      name: 'saviorappxs', options: DefaultFirebaseOptions.currentPlatform);
 
   await FirebaseAppCheck.instance.activate(
     androidProvider: AndroidProvider.playIntegrity,
